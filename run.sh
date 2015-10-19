@@ -3,6 +3,9 @@
 FLOW=/var/cache/laravel-install/
 
 if [ -f "${FLOW}/03-server" ]; then
+    echo "Start ssh server"
+    /etc/init.d/sshd start
+
     echo "Start mariadb"
     /etc/init.d/mysql start
 

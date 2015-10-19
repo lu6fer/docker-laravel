@@ -63,7 +63,7 @@ sed -e "s#%PORT%#${PORT}#g" \
     -e "s#%FQDN%#${FQDN//,/ }#g" /opt/install/sample.conf > /etc/nginx/sites-available/${NAME}.conf
 
 cd /etc/nginx/sites-enabled
-ln -s ../${NAME}.conf ${NAME}
+ln -s ../sites-available/${NAME}.conf ${NAME}
 
 
 if [ "$CREATE" == "true" ]; then 
