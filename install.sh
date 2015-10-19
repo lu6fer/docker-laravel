@@ -17,7 +17,7 @@ fi
 if [ ! -f "${FLOW}/01-requirements" ]; then 
     echo "install nginx, php-fpm, mariadb" | tee -a ${LOG}
     debconf-set-selections /opt/install/maria-password.txt
-    apt-get -y install mysql-server nginx php5-fpm php5-cli php5-mysql php5-mcrypt openssh-server 2>&1 1>>$LOG
+    apt-get -y install mysql-server nginx php5-fpm php5-cli php5-mysql php5-mcrypt openssh-server git 2>&1 1>>$LOG
     mkdir -p /var/run/sshd 
     sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config
     sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config

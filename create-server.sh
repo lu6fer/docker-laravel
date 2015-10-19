@@ -59,7 +59,7 @@ fi
 mkdir -p ${SRV}/${NAME}
 
 sed -e "s#%PORT%#${PORT}#g" \
-    -e "s#%PATH%#${SRV}/${NAME}/public#g" \
+    -e "s#%PATH%#${SRV}/${NAME}#g" \
     -e "s#%FQDN%#${FQDN//,/ }#g" /opt/install/sample.conf > /etc/nginx/sites-available/${NAME}.conf
 
 cd /etc/nginx/sites-enabled
@@ -72,6 +72,8 @@ if [ "$CREATE" == "true" ]; then
     cd ${NAME}
     npm install .
 fi
+
+mkdir -p "${SRV}/${NAME}/public/storage/logs"
 
 /etc/init.d/php5-fpm restart
 /etc/init.d/nginx restart
