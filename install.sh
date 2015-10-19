@@ -8,8 +8,8 @@ export DEBIAN_FRONTEND=noninteractive
 # Update debian
 if [ ! -f "${FLOW}/00-update" ]; then
     echo "Update debian" | tee -a ${LOG}
-    apt-get update 2>&1 1>>$LOG ; apt-get dist-upgrade -y 2>&1 1>>$LOG
     apt-get -y install apt-utils 2>&1 1>>$LOG
+    apt-get update 2>&1 1>>$LOG ; apt-get dist-upgrade -y 2>&1 1>>$LOG
     touch "${FLOW}/00-update"
 fi
 
