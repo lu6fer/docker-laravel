@@ -1,0 +1,11 @@
+laravel:
+    image: lu6fer/laravel
+    ports:
+        - "8000-8900:80-89"
+        - "33060:3306"
+        - "2222:22"
+    volumes:
+        - /etc/nginx:/opt/docker/laravel/config/nginx
+        - /etc/php5:/opt/docker/laravel/config/php5
+        - /etc/mysql:/opt/docker/laravel/config/mysql
+        - /srv/http:/opt/docker/laravel/srv/http
