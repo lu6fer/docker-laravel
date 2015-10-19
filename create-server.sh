@@ -51,9 +51,9 @@ done
 shift $((OPTIND-1))
 
 echo "Create laravel server"
-if [ -f /etc/nginx/site-enabled/default ]; then 
+if [ -f /etc/nginx/sites-enabled/default ]; then 
     echo "Removing default nginx site"
-    \rm -f /etc/nginx/site-enabled/default
+    \rm -f /etc/nginx/sites-enabled/default
 fi
 
 mkdir -p ${SRV}/${NAME}
@@ -62,7 +62,7 @@ sed -e "s#%PORT%#${PORT}#g" \
     -e "s#%PATH%#${SRV}/${NAME}/public#g" \
     -e "s#%FQDN%#${FQDN//,/ }#g" /opt/install/sample.conf > /etc/nginx/sites-available/${NAME}.conf
 
-cd /etc/nginx/site-enabled
+cd /etc/nginx/sites-enabled
 ln -s ../${NAME}.conf ${NAME}
 
 

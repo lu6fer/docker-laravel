@@ -11,7 +11,7 @@ ADD maria-password.txt /opt/install/maria-password.txt
 ADD create-server.sh /usr/local/bin/create-server
 ADD sample.conf /opt/install/sample.conf
 
-RUN chmod +x /*.sh
+RUN chmod +x /opt/install/*.sh
 RUN mkdir -p /var/cache/laravel-install
 RUN mkdir -p /srv/http
 
@@ -23,4 +23,4 @@ EXPOSE 80
 EXPOSE 3306
 EXPOSE 22
 
-CMD ["/run.sh"]
+CMD ["/opt/install/run.sh"]
