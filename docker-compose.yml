@@ -2,19 +2,7 @@ laravel:
     image: lu6fer/docker-laravel
     ports:
         - "8000:80"
-        - "8100:81"
-        - "8200:82"
-        - "8300:83"
-        - "8400:84"
-        - "8500:85"
-        - "8600:86"
-        - "8700:87"
-        - "8800:88"
-        - "8900:89"
         - "33060:3306"
         - "2222:22"
     volumes:
-        - /etc/nginx:/opt/docker/laravel/config/nginx
-        - /etc/php5:/opt/docker/laravel/config/php5
-        - /etc/mysql:/opt/docker/laravel/config/mysql
-        - /srv/http:/opt/docker/laravel/srv/http
+        - /opt/docker/laravel/srv/http:/srv/http

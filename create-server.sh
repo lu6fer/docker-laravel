@@ -73,7 +73,8 @@ if [ "$CREATE" == "true" ]; then
     npm install .
 fi
 
-mkdir -p "${SRV}/${NAME}/public/storage/logs"
+mkdir -p "${SRV}/${NAME}/storage/logs"
+chown -R www-data:www-data "${SRV}/${NAME}"
 
 /etc/init.d/php5-fpm restart
 /etc/init.d/nginx restart
